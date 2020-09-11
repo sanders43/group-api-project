@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Health Log</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">The Health Log</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Add Log</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+
+            <form class="container mt-5">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputFirstName">First Name:</label>
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputLastName">Last Name:</label>
+                        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email:</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password:</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <label for="inputGender">Gender:</label>
+                        <select id="inputGender" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>I prefer not to say</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="inputHeight">Height (inches):</label>
+                        <input type="number" class="form-control" id="inputHeight" placeholder="Height" min="36"
+                            max="96">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="inputBirthday">Birthday:</label>
+                        <input type="number" class="form-control" id="inputBirthday" placeholder="Height" min="36"
+                            max="96">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Check here that you agree to our privacy policy
+                        </label>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="col-sm-12 text-right mt-3">
+                    <button type="submit" class="btn btn-primary">Add Log</button>
+                </div>
+
+
+            </form>
+
+
+
+
+
+
+        </main>
+
+
+
+
+
+        <footer class="mt-5">
+            <h6 class="font-italic text-muted">
+                Made with love by people without any HIPAA knowledge. Please share information responsibly.
+            </h6>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/javascript/logout.js"></script>
+</body>
+
+</html>

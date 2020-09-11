@@ -46,42 +46,67 @@
 
         <main>
 
-            <div class="jumbotron">
-                <h1 class="display-4">Welcome To The Health Log!</h1>
-                <p class="lead">A site where you can log and track your way to better health.</p>
-                <hr class="my-4">
-                <p class="font-italic">My recent charts:</p>
-                <img src="../assets/images/chart.png" alt="Chart" width="500" height="333">
-            </div>
+            <form class="container mt-5">
 
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Body Mass Index: 25</h5>
-                        <small>1 day ago</small>
+                <div class="form-group row">
+                    <label for="inputWeight" class="col-sm-3 col-form-label">Weight (lbs.):</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="inputWeight" placeholder="Weight" min="75" max="600">
                     </div>
-                    <p class="mb-1">Weight: 175 lbs. | Blood Pressure: 120/60 | Heart Rate: 120 bpm | Exercise Duration: 30 mins. | Exercise Type: Running</p>
-                    <small>Comments: I felt good!</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <small class="text-muted">2 days ago</small>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputBP" class="col-sm-3 col-form-label">Blood Pressure (ex. 120/80):</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inputBP" placeholder="Blood Pressure">
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                        varius blandit.</p>
-                    <small class="text-muted">Donec id elit non mi porta.</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <small class="text-muted">3 days ago</small>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputHR" class="col-sm-3 col-form-label">Resting Heart Rate (bpm):</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="inputHR" placeholder="Heart Rate" min="45" max="200">
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                        varius blandit.</p>
-                    <small class="text-muted">Donec id elit non mi porta.</small>
-                </a>
-            </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputED" class="col-sm-3 col-form-label">Exercise Duration (mins.):</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="inputED" placeholder="Exercise Duration" min="1" max="360">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputET" class="col-sm-3 col-form-label">Exercise Type:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inputET" placeholder="Exercise Type">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputWater" class="col-sm-3 col-form-label">Water Drank (oz.):</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="inputWater" placeholder="Water Drank" min="0" max="128">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputComments" class="col-sm-3">Comments:</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="inputComments" rows="5"
+                            placeholder="How do you feel?"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12 text-right mt-3">
+                        <button type="submit" class="btn btn-primary">Add Log</button>
+                    </div>
+                </div>
+            </form>
+
+
+
 
 
 
@@ -93,7 +118,7 @@
 
         <footer class="mt-5">
             <h6 class="font-italic text-muted">
-                Made with love by people without any HIPAA knowledge.  Please share information responsibly.
+                Made with love by people without any HIPAA knowledge. Please share information responsibly.
             </h6>
         </footer>
     </div>
