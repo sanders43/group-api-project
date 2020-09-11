@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Health Log</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">The Health Log</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Add Log</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome To The Health Log!</h1>
+                <p class="lead">A site where you can log and track your way to better health.</p>
+                <hr class="my-4">
+                <p class="font-italic">My recent charts:</p>
+                <img src="../assets/images/chart.png" alt="Chart" width="500" height="333">
+            </div>
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Body Mass Index: 25</h5>
+                        <small>1 day ago</small>
+                    </div>
+                    <p class="mb-1">Weight: 175 lbs. | Blood Pressure: 120/60 | Heart Rate: 120 bpm | Exercise Duration: 30 mins. | Exercise Type: Running</p>
+                    <small>Comments: I felt good!</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">List group item heading</h5>
+                        <small class="text-muted">2 days ago</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                        varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">List group item heading</h5>
+                        <small class="text-muted">3 days ago</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                        varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+            </div>
+
+
+
+        </main>
+
+
+
+
+
+        <footer>
+            <h6 class="font-italic text-muted">
+                Made with love by people without any HIPAA knowledge.  Please share responsibly.
+            </h6>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/javascript/logout.js"></script>
+</body>
+
+</html>
