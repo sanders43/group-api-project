@@ -73,7 +73,41 @@
 
                 <div class="form-row mt-3">
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
+                        <select id="inputHeightFeet" class="form-control">
+                            <option selected>Height (feet)...</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <select id="inputHeightInches" class="form-control">
+                            <option selected>Height (inches)...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row mt-3">
+
+                    <div class="form-group col-md-6">
                         <label for="inputGender">Gender:</label>
                         <select id="inputGender" class="form-control">
                             <option selected>Choose...</option>
@@ -83,21 +117,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-4">
-                        <label for="inputHeight">Height (inches):</label>
-                        <input type="number" class="form-control" id="inputHeight" placeholder="Height" min="36"
-                            max="96">
-                    </div>
-
-                    <!-- <div class="form-group col-md-4">
-                        <label for="inputBirthday">Birthday:</label>
-                        <input type="number" class="form-control" id="inputBirthday" placeholder="Height" min="36"
-                            max="96">
-                    </div> -->
-
-                    <div class="form-group col-md-4">
-                        <label for="inputBirthday">Date of Birth:</label>
-                        <input type="date" class="form-control" id="inputBirthday">
+                    <div class="form-group col-md-6">
+                        <label for="inputBirthday">Date of Birth (mm/dd/yyyy):</label>
+                        <input type="date" class="form-control" id="inputBirthday" placeholder="mm/dd/yyyy">
                     </div>
 
                 </div>
@@ -126,7 +148,7 @@
 
 
 
-              
+
 
 
             </form>
