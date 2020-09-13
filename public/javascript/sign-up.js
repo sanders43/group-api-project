@@ -1,12 +1,23 @@
 const signupSeed = {
-    firstName: "John",
-    lastName: "Smith",
+    first_name: "John",
+    last_name: "Smith",
     email: "johnsmith@gmail.com",
     password: "hashedPassword",
-    gender: "male",
-    heightFeet: "5",
-    heightInches: "11",
-    birthday: "01/02/25"
+    gender: "Male",
+    height_feet: "5",
+    height_inches: "11",
+    birthday: "90-02-25"
+};
+
+const signupSeedJSON = {
+    "first_name": "John",
+    "last_name": "Smith",
+    "email": "johnsmith@gmail.com",
+    "password": "hashedPassword",
+    "gender": "male",
+    "height_feet": "5",
+    "height_inches": "11",
+    "birthday": "90/02/25"
 };
 
 const healthLogSeed = {
@@ -19,65 +30,18 @@ const healthLogSeed = {
     comments: "I feel great!"
 };
 
-
-
-
-// async function signupFormHandler(event) {
-
-//     event.preventDefault();
-
-//     console.log("button clicked!");
-
-//     const firstName = document.querySelector('#inputFirstName').value.trim();
-//     const lastName = document.querySelector('#inputLastName').value.trim();
-//     const email = document.querySelector('#inputEmail').value.trim();
-//     const password = document.querySelector('#inputPassword').value.trim();
-//     const heightFeet = document.querySelector('#inputHeightFeet').value.trim();
-//     const heightInches = document.querySelector('#inputHeightInches').value.trim();
-//     const gender = document.querySelector('#inputGender').value.trim();
-//     const birthday = document.querySelector('#inputBirthday').value.trim();
-    
-
-//     if (firstName && lastName && email && password && heightFeet && heightInches && gender && birthday) {
-//         const response = await fetch('/api/users', {
-//             method: 'post',
-//             body: JSON.stringify({
-//                 firstName,
-//                 lastName,
-//                 email,
-//                 password,
-//                 heightFeet,
-//                 heightInches,
-//                 gender,
-//                 birthday
-//             }),
-//             headers: { 'Content-Type': 'application/json' }
-//         });
-//         console.log(response);
-
-//         // check the response status
-//         if (response.ok) {
-//             console.log('success');
-//             document.location.replace('/dashboard');
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// };
-
-
-function signupFormHandler(event) {
+async function signupFormHandler(event) {
 
     event.preventDefault();
 
     console.log("button clicked!");
 
-    const firstName = document.querySelector('#inputFirstName').value.trim();
-    const lastName = document.querySelector('#inputLastName').value.trim();
+    const first_name = document.querySelector('#inputFirstName').value.trim();
+    const last_name = document.querySelector('#inputLastName').value.trim();
     const email = document.querySelector('#inputEmail').value.trim();
     const password = document.querySelector('#inputPassword').value.trim();
-    const heightFeet = document.querySelector('#inputHeightFeet').value.trim();
-    const heightInches = document.querySelector('#inputHeightInches').value.trim();
+    const height_feet = document.querySelector('#inputHeightFeet').value.trim();
+    const height_inches = document.querySelector('#inputHeightInches').value.trim();
     const gender = document.querySelector('#inputGender').value.trim();
     const birthday = document.querySelector('#inputBirthday').value.trim();
 
@@ -95,35 +59,35 @@ function signupFormHandler(event) {
         return;
     };
 
-    if (!firstName || !lastName || !email || !password || !heightFeet || !heightInches ||!gender || !birthday) {
+    if (!first_name || !last_name || !email || !password || !height_feet || !height_inches || !gender || !birthday) {
         alert("Please make sure all of the fields are filled in!");
         return;
     };
 
 
-    
 
-    if (firstName && lastName && email && password && heightFeet && heightInches && gender && birthday) {
-        const response = {
+
+    if (first_name && last_name && email && password && height_feet && height_inches && gender && birthday) {
+        const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
-                firstName,
-                lastName,
+                first_name,
+                last_name,
                 email,
                 password,
-                heightFeet,
-                heightInches,
                 gender,
+                height_feet,
+                height_inches,
                 birthday
             }),
             headers: { 'Content-Type': 'application/json' }
-        };
+        });
         console.log(response);
 
         // check the response status
         if (response.ok) {
             console.log('success');
-            document.location.replace('/dashboard');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
