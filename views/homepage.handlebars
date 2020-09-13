@@ -13,11 +13,28 @@
   </form>
 </section>
 
-<section>
-    <h2>My Chart Test</h2>
-    <div>
-      {{> chart}} 
-      {{> weight}}
-      {{> exercise}}  
+<ol class = 'post-list'>
+    {{#each posts as |post|}}
+    <li>
+       {{> post-info post}}
+    </li>
+    {{/each}}
+</ol>
+
+<section class = 'container'>
+    <h2>My Test Charts</h2>
+    <div class ='row'>
+      <div class='col-md' d>
+        {{> heart-rate}}    
+      </div>
+      <div class='col-md'>
+      {{> weight}}  
+      </div>
     </div>
+    <div class = 'row'>
+      <div class = 'col-md'>
+        {{>blood-pressure}}
+      </div>
+    </div>
+    
 </section>

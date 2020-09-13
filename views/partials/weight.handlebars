@@ -1,44 +1,60 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<h2>Weight Chart</h2>
-<canvas id="weightChart"></canvas>
+
+<h2>Weight</h2>
+<canvas id="weightChart" width="200" height="100"></canvas>
+
 
 <script>
-    var ctx = document.getElementById('weightChart').getContext('2d');
+  const xWeight = []
+  const yWeight = []
 
-    var myChart = new Chart(ctx, {
-    type: 'bar',
+makeWeightChart();
+    
+async function makeWeightChart(){
+    await getWeight()
+    const ctx = document.getElementById('weightChart').getContext('2d');
+  
+
+    const myChart = new Chart(ctx, {
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: xWeight,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            label: 'Weight',
+            data: yWeight,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+                
             borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+             }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 150,
+                        suggestedMax: 250
+                    }
+                }]
+            }
         }
-    }
-});
+    });
+}
+
+async function getWeight(){
+        const response = await fetch('/api/posts');
+        const data = await response.json();
+
+        
+        console.log(data);
+        data.forEach(data => {
+            const weight = data.weight;
+            console.log(weight);
+            yWeight.push(weight);
+
+            const date = data.created_at;
+            console.log(date);
+            xWeight.push(date);
+        })
+}
 </script>

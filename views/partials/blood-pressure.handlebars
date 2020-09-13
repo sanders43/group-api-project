@@ -1,0 +1,58 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<h2>Blood Pressure</h2>
+<canvas id="bpChart" height="400" width="400"></canvas>
+
+<script>
+    const xBP = [];
+  const yBP = []
+
+makeChart();
+    
+async function makeChart(){
+    await getBP()
+    const ctx = document.getElementById('bpChart').getContext('2d');
+  
+
+    const myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        labels: xdate,
+        datasets: [{
+            label: 'Heart Rate',
+            data: [{
+                x: xBP,
+                y: yBP,
+             }]
+        }],
+        options: {
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom'
+                }]
+            }
+        }
+    }
+});
+}
+
+
+async function getBP(){
+        const response = await fetch('/api/posts');
+        const data = await response.json();
+
+        
+        console.log(data);
+        data.forEach(data => {
+            const systolic = data.systolic_blood_pressure;
+            console.log(systolic);
+            yBP.push(systolic);
+
+            const diastolic = data.diastolic_blood_pressure;
+            console.log(diastolic);
+            xBP.push(diastolic);
+        })
+}
+</script>
+
+
