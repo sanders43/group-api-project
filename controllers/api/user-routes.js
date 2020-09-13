@@ -24,7 +24,15 @@ router.get('/:id', (req,res)=> {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id',
+        'weight',
+        'blood_pressure',
+        'heart_rate',
+        'exercise_duration',
+        'exercise_type',
+        'water_consumed',
+        'comments',
+        'created_at']
       }
     ]
   })
@@ -44,9 +52,14 @@ router.get('/:id', (req,res)=> {
 //POST /api/users
 router.post('/', (req,res)=> {
     User.create({
-        username: req.body.username,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        gender: req.body.gender,
+        height_feet: req.body.height_feet,
+        height_inches: req.body.height_inches,
+        birthday: req.body.birthday
     })
     .then(dbUserData => {
       req.session.save(() => {
@@ -137,7 +150,7 @@ router.delete("/:id", (req,res)=> {
     })
     .then(dbUserData => {
         if (!dbUserData) {
-            res.status(404).json({ message: "No user foudn with this id" });
+            res.status(404).json({ message: "No user found with this id" });
             return;
         }
         res.json(dbUserData);

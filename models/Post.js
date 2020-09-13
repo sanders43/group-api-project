@@ -32,7 +32,7 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      water_drank: {
+      water_consumed: {
         type: DataTypes.INTEGER,
         allowNull: false
       },

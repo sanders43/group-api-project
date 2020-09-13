@@ -8,23 +8,20 @@ router.get('/', (req, res) => {
       order: [['created_at', 'DESC']],
       attributes: [
         'id',
-        'post_url',
-        'title',
-        'created_at',
+        'weight',
+        'blood_pressure',
+        'heart_rate',
+        'exercise_duration',
+        'exercise_type',
+        'water_consumed',
+        'comments',
+        'created_at'
       ],
       include: [
-        // include the Comment model here:
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        
         {
           model: User,
-          attributes: ['username']
+          attributes: ['first_name', 'last_name']
         }
       ]
      })
@@ -43,23 +40,20 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'post_url',
-        'title',
-        'created_at',
+        'weight',
+        'blood_pressure',
+        'heart_rate',
+        'exercise_duration',
+        'exercise_type',
+        'water_consumed',
+        'comments',
+        'created_at'
       ],
       include: [
-        // include the Comment model here:
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        
         {
           model: User,
-          attributes: ['username']
+          attributes: ['first_name', 'last_name']
         }
       ]
      })
@@ -78,14 +72,14 @@ router.get('/', (req, res) => {
   
 
   router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    
     Post.create({
-      title: req.body.title,
       weight: req.body.weight,
       blood_pressure: req.body.blood_pressure,
+      heart_rate: req.body.heart_rate,
       exercise_duration: req.body.exercise_duration,
       exercise_type: req.body.exercise_type,
-      water_drank: req.body.water_drank,
+      water_consumed: req.body.water_consumed,
       comments: req.body.comments,
       user_id: req.body.user_id
     })
@@ -100,7 +94,14 @@ router.get('/', (req, res) => {
   router.put('/:id', (req, res) => {
     Post.update(
       {
-        title: req.body.title
+        weight: req.body.weight,
+        blood_pressure: req.body.blood_pressure,
+        heart_rate: req.body.heart_rate,
+        exercise_duration: req.body.exercise_duration,
+        exercise_type: req.body.exercise_type,
+        water_consumed: req.body.water_consumed,
+        comments: req.body.comments,
+        user_id: req.body.user_id
       },
       {
         where: {

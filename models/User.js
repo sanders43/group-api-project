@@ -25,11 +25,19 @@ User.init(
           // turn on auto increment
           autoIncrement: true
         },
-        // define a username column
-        username: {
+        // define a first name column
+        first_name: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: false,
+
         },
+        // define a last name column
+        last_name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+
+        },
+      
         // define an email column
         email: {
           type: DataTypes.STRING,
@@ -49,6 +57,25 @@ User.init(
             // this means the password must be at least four characters long
             len: [4]
           }
+        },
+        gender: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        height_feet: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+
+        },
+        height_inches: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+
+        },
+        birthday: {
+          type: DataTypes.STRING,
+          allowNull: false,
+
         }
       },
       {
