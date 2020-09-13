@@ -13,13 +13,17 @@ Post.init(
         autoIncrement: true
       },
       weight: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
-      blood_pressure: {
-        type: DataTypes.STRING,
+      systolic_blood_pressure: {
+        type: DataTypes.INTEGER,
         allowNull: false
       },
+      diastolic_blood_pressure: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
       heart_rate: {
         type: DataTypes.INTEGER,
         allowNull: false

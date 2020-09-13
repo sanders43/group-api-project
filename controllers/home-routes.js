@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'weight',
-        'blood_pressure',
+        'systolic_blood_pressure',
+        'diastolic_blood_pressure',
         'heart_rate',
         'exercise_duration',
         'exercise_type',
@@ -54,7 +55,8 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'weight',
-        'blood_pressure',
+        'systolic_blood_pressure',
+        'diastolic_blood_pressure',
         'heart_rate',
         'exercise_duration',
         'exercise_type',
