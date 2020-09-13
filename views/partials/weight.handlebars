@@ -45,15 +45,11 @@ async function getWeight(){
         const response = await fetch('/api/posts');
         const data = await response.json();
 
-        
-        console.log(data);
         data.forEach(data => {
             const weight = data.weight;
-            console.log(weight);
             yWeight.push(weight);
 
             const date = data.created_at;
-            console.log(date);
             xWeight.push(date);
         })
 }

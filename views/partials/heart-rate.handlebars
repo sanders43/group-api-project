@@ -43,15 +43,12 @@ async function getHR(){
         const response = await fetch('/api/posts');
         const data = await response.json();
 
-        
-        console.log(data);
+    
         data.forEach(data => {
             const heartRate = data.heart_rate;
-            console.log(heartRate);
             yheartRate.push(heartRate);
 
             const date = data.created_at;
-            console.log(date);
             xdate.push(date);
         })
 }

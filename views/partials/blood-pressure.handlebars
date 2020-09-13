@@ -1,39 +1,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <h2>Blood Pressure</h2>
-<canvas id="bpChart" height="400" width="400"></canvas>
+<canvas id="bpChart" height="100" width="100"></canvas>
 
 <script>
-    const xBP = [];
-  const yBP = []
+    const bloodPressure = [];
 
 makeChart();
     
 async function makeChart(){
-    await getBP()
+    await parseBP()
     const ctx = document.getElementById('bpChart').getContext('2d');
   
+   
 
     const myChart = new Chart(ctx, {
     type: 'scatter',
-    data: {
-        labels: xdate,
+    data:{
         datasets: [{
-            label: 'Heart Rate',
+            label: 'Blood Pressure',
             data: [{
-                x: xBP,
-                y: yBP,
-             }]
+                x: xDia[i],
+                y: ySys[i]
+            }],
+            backgroundColor: 'rgba(75, 192, 192, 1)'
         }],
-        options: {
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom'
-                }]
-            }
-        }
     }
-});
+    });
 }
 
 
@@ -41,17 +33,23 @@ async function getBP(){
         const response = await fetch('/api/posts');
         const data = await response.json();
 
-        
-        console.log(data);
+    
         data.forEach(data => {
             const systolic = data.systolic_blood_pressure;
-            console.log(systolic);
-            yBP.push(systolic);
-
             const diastolic = data.diastolic_blood_pressure;
-            console.log(diastolic);
-            xBP.push(diastolic);
-        })
+               bloodPressure.push({diastolic, systolic});
+        })        
+}
+   console.log(bloodPressure);
+
+async function parseBP (){
+    await getBP()
+    bloodPressure.forEach(bp =>{
+                let xDia = bp.diastolic;
+                let ySys = bp.systolic;
+                console.log(xDia);
+                console.log(ySys);
+                })
 }
 </script>
 
