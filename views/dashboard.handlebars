@@ -1,0 +1,26 @@
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to your health Dashboard!</h1>
+    <p class="lead">Your personalized health review.</p>
+    <hr class="my-4">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            {{>heart-rate}}
+        </div>
+
+        <div class="col-md-4">
+               {{>weight}}
+        </div>
+
+        <div class="col-md-4">
+                 {{>blood-pressure}}
+        </div>
+    </div>
+</div>
+
+<div>
+    {{#each posts as |post|}}
+      {{> post-info post}}
+    {{/each}}
+</div>
