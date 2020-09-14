@@ -60,7 +60,8 @@ router.post('/', (req,res)=> {
         gender: req.body.gender,
         height_feet: req.body.height_feet,
         height_inches: req.body.height_inches,
-        birthday: req.body.birthday
+        birthday: req.body.birthday,
+        admin: req.body.admin
     })
     .then(dbUserData => {
       req.session.save(() => {
