@@ -29,9 +29,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
+                    {{#if user.admin}}
+                    <li class="nav-item">
+                        <a class="admin" href="/admin">Admin Dashboard</a>
+                    </li>
+                    {{else}}
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">My Profile</a>
                     </li>
+                    {{/if}}
                     <li class="nav-item">
                         <a class="nav-link" href="/add-log">Add Log</a>
                     </li>
@@ -59,7 +65,7 @@
             </h6>
         </footer>
     </div>
-
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
