@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
         
         {
           model: User,
-          attributes: ['first_name', 'last_name']
+          attributes: ['id', 'first_name', 'last_name', 'height_feet', 'height_inches']
         }
       ]
      })
@@ -57,7 +57,7 @@ router.get('/', (req, res) => {
         
         {
           model: User,
-          attributes: ['first_name', 'last_name']
+          attributes: ['id', 'first_name', 'last_name', 'height_feet', 'height_inches']
         }
       ]
      })
@@ -87,7 +87,7 @@ router.get('/', (req, res) => {
       water_consumed: req.body.water_consumed,
       emoji_feeling: req.body.emoji_feeling,
       comments: req.body.comments,
-      user_id: req.body.user_id
+      user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -109,7 +109,7 @@ router.get('/', (req, res) => {
         water_consumed: req.body.water_consumed,
         emoji_feeling: req.body.emoji_feeling,
         comments: req.body.comments,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
       },
       {
         where: {

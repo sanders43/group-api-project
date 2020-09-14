@@ -8,6 +8,7 @@ const healthLogSeed = {
     water_consumed: 64,
     emoji_feeling: "🤢",
     comments: "Tired",
+    bmi: 25
 };
 
 const healthLogSeedJSON = {
@@ -35,6 +36,13 @@ async function newLogHandler(event) {
     const water_consumed = document.querySelector('#inputWater').value;
     const emoji_feeling = document.querySelector('#inputEmoji').value;
     const comments = document.querySelector('#inputComments').value.trim();
+
+    // const user_height = (user.height_feet * 12) + user.height_inches;
+    const user_height = 74;
+    console.log(user_height);
+
+    const bmi = (weight/(user_height * user_height)) * 703;
+    console.log(bmi);
 
     if (!weight) {
         alert("Please make sure to log your weight!");
