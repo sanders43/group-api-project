@@ -71,6 +71,26 @@ router.get('/add-log', (req, res) => {
   res.render('add-log');
 });
 
+// Profile
+router.get('/profile', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('profile');
+});
+
+// Edit-Profile
+router.get('/edit-profile', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('edit-profile');
+});
+
 // GET single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
