@@ -4,6 +4,7 @@
 
 <script>
     const bloodPressure = [];
+    let chartBP;
 
 makeChart();
     
@@ -11,17 +12,14 @@ async function makeChart(){
     await parseBP()
     const ctx = document.getElementById('bpChart').getContext('2d');
   
-   
+   console.log(chartBP);
 
     const myChart = new Chart(ctx, {
     type: 'scatter',
     data:{
         datasets: [{
             label: 'Blood Pressure',
-            data: [{
-                x: xDia[i],
-                y: ySys[i]
-            }],
+            data: chartBP,
             backgroundColor: 'rgba(75, 192, 192, 1)'
         }],
     }
@@ -44,12 +42,10 @@ async function getBP(){
 
 async function parseBP (){
     await getBP()
-    bloodPressure.forEach(bp =>{
-                let xDia = bp.diastolic;
-                let ySys = bp.systolic;
-                console.log(xDia);
-                console.log(ySys);
-                })
+    chartBP = bloodPressure.map(bp => ({
+        x: bp.diastolic,
+        y: bp.systolic
+    }) )
 }
 </script>
 
