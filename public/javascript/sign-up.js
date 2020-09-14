@@ -17,17 +17,7 @@ const signupSeedJSON = {
     "gender": "male",
     "height_feet": "5",
     "height_inches": "11",
-    "birthday": "90/02/25"
-};
-
-const healthLogSeed = {
-    weight: 175,
-    bloodPressure: "120/80",
-    heartRate: 65,
-    exerciseDuration: 30,
-    exerciseType: "running",
-    waterDrank: 32,
-    comments: "I feel great!"
+    "birthday": "1990-02-25"
 };
 
 async function signupFormHandler(event) {

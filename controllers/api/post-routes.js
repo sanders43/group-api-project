@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
         'exercise_duration',
         'exercise_type',
         'water_consumed',
+        'emoji_feeling',
         'comments',
         'created_at'
       ],
@@ -48,6 +49,7 @@ router.get('/', (req, res) => {
         'exercise_duration',
         'exercise_type',
         'water_consumed',
+        'emoji_feeling',
         'comments',
         'created_at'
       ],
@@ -83,6 +85,7 @@ router.get('/', (req, res) => {
       exercise_duration: req.body.exercise_duration,
       exercise_type: req.body.exercise_type,
       water_consumed: req.body.water_consumed,
+      emoji_feeling: req.body.emoji_feeling,
       comments: req.body.comments,
       user_id: req.body.user_id
     })
@@ -104,6 +107,7 @@ router.get('/', (req, res) => {
         exercise_duration: req.body.exercise_duration,
         exercise_type: req.body.exercise_type,
         water_consumed: req.body.water_consumed,
+        emoji_feeling: req.body.emoji_feeling,
         comments: req.body.comments,
         user_id: req.body.user_id
       },

@@ -16,6 +16,7 @@ router.get('/', withAuth, (req, res) => {
       'exercise_duration',
       'exercise_type',
       'water_consumed',
+      'emoji_feeling',
       'comments',
       'created_at'
     ],
@@ -58,6 +59,16 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+// Add-Log
+router.get('/add-log', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('add-log');
 });
 
 // GET single post

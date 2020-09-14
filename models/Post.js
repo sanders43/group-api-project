@@ -18,27 +18,31 @@ Post.init(
       },
       systolic_blood_pressure: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       diastolic_blood_pressure: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
       heart_rate: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       exercise_duration: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       exercise_type: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       water_consumed: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
+      },
+      emoji_feeling: {
+        type: DataTypes.STRING,
+        allowNull: true
       },
       comments: {
         type: DataTypes.STRING,
