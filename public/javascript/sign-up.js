@@ -6,7 +6,7 @@ const signupSeed = {
     gender: "Male",
     height_feet: "5",
     height_inches: "11",
-    birthday: "90-02-25"
+    birthday: "1990-02-25"
 };
 
 const signupSeedJSON = {
