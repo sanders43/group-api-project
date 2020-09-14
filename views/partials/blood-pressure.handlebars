@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <h2>Blood Pressure</h2>
-<canvas id="bpChart" height="100" width="100"></canvas>
+<canvas id="bpChart" height="100" width="200"></canvas>
 
 <script>
     const bloodPressure = [];
@@ -22,6 +22,14 @@ async function makeChart(){
             data: chartBP,
             backgroundColor: 'rgba(75, 192, 192, 1)'
         }],
+    },
+    options: {
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom'
+            }
+        }
     }
     });
 }
