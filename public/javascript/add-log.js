@@ -28,14 +28,14 @@ async function newLogHandler(event) {
     event.preventDefault();
 
     const weight = document.querySelector('#inputWeight').value;
-    const systolic_blood_pressure = document.querySelector('#inputBPSys').value;
-    const diastolic_blood_pressure = document.querySelector('#inputBPDia').value;
-    const heart_rate = document.querySelector('#inputHR').value;
-    const exercise_duration = document.querySelector('#inputExerciseDuration').value;
-    const exercise_type = document.querySelector('#inputExerciseType').value.trim();
-    const water_consumed = document.querySelector('#inputWater').value;
-    const emoji_feeling = document.querySelector('#inputEmoji').value;
-    const comments = document.querySelector('#inputComments').value.trim();
+    let systolic_blood_pressure = document.querySelector('#inputBPSys').value;
+    let diastolic_blood_pressure = document.querySelector('#inputBPDia').value;
+    let heart_rate = document.querySelector('#inputHR').value;
+    let exercise_duration = document.querySelector('#inputExerciseDuration').value;
+    let exercise_type = document.querySelector('#inputExerciseType').value.trim();
+    let water_consumed = document.querySelector('#inputWater').value;
+    let emoji_feeling = document.querySelector('#inputEmoji').value;
+    let comments = document.querySelector('#inputComments').value.trim();
 
     // const user_height = (user.height_feet * 12) + user.height_inches;
     const user_height = 74;
@@ -47,7 +47,34 @@ async function newLogHandler(event) {
     if (!weight) {
         alert("Please make sure to log your weight!");
         return;
-    }
+    };
+
+    if (!systolic_blood_pressure) {
+        systolic_blood_pressure = null;
+    };
+    if (!diastolic_blood_pressure) {
+        diastolic_blood_pressure = null;
+    };
+    if (!heart_rate) {
+        heart_rate = null;
+    };
+    if (!exercise_duration) {
+        exercise_duration = null;
+    };
+    if (!exercise_type) {
+        exercise_type = "";
+    };
+    if (!water_consumed) {
+        water_consumed = null;
+    };
+    if (emoji_feeling === "Choose...") {
+        emoji_feeling = "";
+    };
+    if (!comments) {
+        comments = "";
+    };
+
+    console.log(weight, systolic_blood_pressure, diastolic_blood_pressure, heart_rate, exercise_duration, exercise_type, water_consumed, emoji_feeling, comments);
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -55,6 +82,7 @@ async function newLogHandler(event) {
             weight,
             systolic_blood_pressure,
             diastolic_blood_pressure,
+            bmi,
             heart_rate,
             exercise_duration,
             exercise_type,

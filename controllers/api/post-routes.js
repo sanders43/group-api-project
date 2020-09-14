@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -43,6 +44,7 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -79,6 +81,7 @@ router.get('/', (req, res) => {
     
     Post.create({
       weight: req.body.weight,
+      bmi: req.body.bmi,
       systolic_blood_pressure: req.body.systolic_blood_pressure,
       diastolic_blood_pressure: req.body.diastolic_blood_pressure,
       heart_rate: req.body.heart_rate,
@@ -101,6 +104,7 @@ router.get('/', (req, res) => {
     Post.update(
       {
         weight: req.body.weight,
+        bmi: req.body.bmi,
         systolic_blood_pressure: req.body.systolic_blood_pressure,
         diastolic_blood_pressure: req.body.diastolic_blood_pressure,
         heart_rate: req.body.heart_rate,
