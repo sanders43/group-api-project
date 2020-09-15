@@ -29,11 +29,12 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
-      console.log("!!!!!!!!!!!!!!!!!!!")
-      console.log(dbPostData[1].user);
+      console.log("@#$!!!!!!!!!!!!!!!!!!")
+      console.log(req.session.user_id);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('homepage', {
+        user_id: req.session.user_id,
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -65,11 +66,11 @@ router.get('/login', (req, res) => {
 });
 
 // Add-Log
-router.get('/add-log', (req, res) => {
+router.get('/add-log/:id', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
     return;
-  }
+  };
 
   res.render('add-log');
 });
