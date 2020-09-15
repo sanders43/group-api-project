@@ -38,6 +38,9 @@ async function newLogHandler(event) {
     let comments = document.querySelector('#inputComments').value.trim();
 
     // const user_height = (user.height_feet * 12) + user.height_inches;
+    // const user_height = session.heightInInches
+    // console.log(user_height);
+    // console.log(req.session);
     const user_height = 74;
     console.log(user_height);
 
@@ -80,9 +83,9 @@ async function newLogHandler(event) {
         method: 'POST',
         body: JSON.stringify({
             weight,
+            bmi,
             systolic_blood_pressure,
             diastolic_blood_pressure,
-            bmi,
             heart_rate,
             exercise_duration,
             exercise_type,
@@ -94,6 +97,7 @@ async function newLogHandler(event) {
             'Content-Type': 'application/json'
         }
     });
+    console.log(response);
 
     if (response.ok) {
         document.location.replace('/');

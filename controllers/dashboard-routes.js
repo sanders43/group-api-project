@@ -10,6 +10,7 @@ router.get('/', withAuth, (req, res) => {
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -51,6 +52,7 @@ router.get('/post/:id', (req, res) => {
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',

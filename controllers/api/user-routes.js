@@ -24,8 +24,10 @@ router.get('/:id', (req,res)=> {
     include: [
       {
         model: Post,
-        attributes: ['id',
+        attributes: [
+        'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -66,7 +68,8 @@ router.post('/', (req,res)=> {
     .then(dbUserData => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.email = dbUserData.email;
+        req.session.heightInInches = (dbUserData.height_feet * 12) + dbUserData.height_inches;
         req.session.loggedIn = true;
     
         res.json(dbUserData);
@@ -100,7 +103,8 @@ router.post('/login', (req, res) => {
     req.session.save(() => {
       // declare session variables
       req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.email = dbUserData.email;
+      req.session.heightInInches = (dbUserData.height_feet * 12) + dbUserData.height_inches;
       req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });

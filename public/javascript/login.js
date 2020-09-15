@@ -16,12 +16,14 @@ async function loginFormHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         });
 
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            // alert(response.statusText);
-            alert("Incorrect email or password.  Please try again.");
-        }
+        console.log(response);
+
+        // if (response.ok) {
+        //     document.location.replace('/');
+        // } else {
+        //     // alert(response.statusText);
+        //     alert("Incorrect email or password.  Please try again.");
+        // }
     }
 }
 

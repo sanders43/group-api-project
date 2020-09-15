@@ -3,9 +3,8 @@ async function editFormHandler(event) {
     event.preventDefault();
 
     // TODO: make this work...
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const id = req.session.user_id;
+    console.log(id);
 
     console.log("button clicked!");
 

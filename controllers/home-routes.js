@@ -10,6 +10,7 @@ router.get('/', withAuth, (req, res) => {
     attributes: [
       'id',
       'weight',
+      'bmi',
       'systolic_blood_pressure',
       'diastolic_blood_pressure',
       'heart_rate',
@@ -23,11 +24,13 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['first_name', 'last_name']
+        attributes: ['first_name', 'last_name', 'height_feet', 'height_inches']
       }
     ]
   })
     .then(dbPostData => {
+      console.log("!!!!!!!!!!!!!!!!!!!")
+      console.log(dbPostData[1].user);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('homepage', {
@@ -100,6 +103,7 @@ router.get('/post/:id', (req, res) => {
     attributes: [
       'id',
       'weight',
+      'bmi',
       'systolic_blood_pressure',
       'diastolic_blood_pressure',
       'heart_rate',
@@ -136,5 +140,7 @@ router.get('/post/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 
 module.exports = router;
