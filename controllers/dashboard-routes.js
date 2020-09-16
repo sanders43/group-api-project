@@ -130,15 +130,15 @@ router.get('/profile', (req, res) => {
   res.render('profile');
 });
 
-// Login
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+// // Login
+// router.get('/login', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
 
-  res.render('login');
-});
+//   res.render('login');
+// });
 
 // Signup
 router.get('/signup', (req, res) => {
