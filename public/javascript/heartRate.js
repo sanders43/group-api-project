@@ -47,3 +47,4 @@ async function getHR(){
           xdate.push(date);
       })
 }
+

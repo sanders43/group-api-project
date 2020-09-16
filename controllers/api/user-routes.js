@@ -106,6 +106,9 @@ router.post('/login', (req, res) => {
       req.session.email = dbUserData.email;
       req.session.heightInInches = (dbUserData.height_feet * 12) + dbUserData.height_inches;
       req.session.loggedIn = true;
+      if(dbUserData.admin){
+        req.session.admin = true;
+      }
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });

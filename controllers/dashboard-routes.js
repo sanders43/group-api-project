@@ -30,7 +30,7 @@ router.get('/', withAuth, (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name']
+          attributes: ['first_name', 'last_name', 'admin']
         }
       ]
     })
@@ -40,7 +40,7 @@ router.get('/', withAuth, (req, res) => {
         res.render('dashboard', {
           user_id: req.session.user_id,
           posts,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
         });
       })
       .catch(err => {
@@ -99,4 +99,54 @@ router.get('/post/:id', (req, res) => {
       });
   });
   
+  // Edit-Profile
+router.get('/edit-profile', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('edit-profile');
+});
+
+// Add-Log
+router.get('/add-log/:id', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  };
+
+  res.render('add-log');
+});
+
+// Profile
+router.get('/profile', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('profile');
+});
+
+// Login
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+// Signup
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
+});
+
   module.exports = router;

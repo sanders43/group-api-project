@@ -79,7 +79,8 @@ User.init(
         },
         admin: {
           type: DataTypes.INTEGER,
-          admin: Boolean
+          allowNull: false,
+          defaultValue: 0
         }
       },
       {

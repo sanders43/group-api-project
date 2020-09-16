@@ -25,123 +25,35 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['first_name', 'last_name', 'height_feet', 'height_inches']
+        attributes: ['first_name', 'last_name', 'height_feet', 'height_inches', 'admin']
       }
     ]
   })
     .then(dbPostData => {
       console.log("@#$!!!!!!!!!!!!!!!!!!")
       console.log(req.session.user_id);
+      console.log(req.session.admin);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('admin', {
         posts,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
-});
-
-// Signup
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-
-  res.render('signup');
 });
 
 // Login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/admin');
     return;
   }
 
   res.render('login');
 });
-
-// Add-Log
-router.get('/add-log/:id', (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  };
-
-  res.render('add-log');
-});
-
-// Profile
-router.get('/profile', (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-
-  res.render('profile');
-});
-
-// Edit-Profile
-router.get('/edit-profile', (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-
-  res.render('edit-profile');
-});
-
-// GET single post
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'weight',
-      'bmi',
-      'systolic_blood_pressure',
-      'diastolic_blood_pressure',
-      'heart_rate',
-      'exercise_duration',
-      'exercise_type',
-      'water_consumed',
-      'comments',
-      'created_at'
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['first_name', 'last_name']
-      }
-    ]
-  })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-
-      // serialize the data
-      const post = dbPostData.get({ plain: true });
-
-      // pass data to template
-      res.render('single-user', {
-        post,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-
 
 module.exports = router;
