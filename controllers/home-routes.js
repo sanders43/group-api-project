@@ -7,9 +7,11 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
+    order: [['created_at', 'DESC']],
     attributes: [
       'id',
       'weight',
+      'bmi',
       'systolic_blood_pressure',
       'diastolic_blood_pressure',
       'heart_rate',
@@ -23,14 +25,17 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['first_name', 'last_name']
+        attributes: ['first_name', 'last_name', 'height_feet', 'height_inches']
       }
     ]
   })
     .then(dbPostData => {
+      console.log("@#$!!!!!!!!!!!!!!!!!!")
+      console.log(req.session.user_id);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('homepage', {
+        user_id: req.session.user_id,
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -62,11 +67,11 @@ router.get('/login', (req, res) => {
 });
 
 // Add-Log
-router.get('/add-log', (req, res) => {
+router.get('/add-log/:id', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
     return;
-  }
+  };
 
   res.render('add-log');
 });
@@ -100,6 +105,7 @@ router.get('/post/:id', (req, res) => {
     attributes: [
       'id',
       'weight',
+      'bmi',
       'systolic_blood_pressure',
       'diastolic_blood_pressure',
       'heart_rate',
@@ -136,5 +142,7 @@ router.get('/post/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 
 module.exports = router;

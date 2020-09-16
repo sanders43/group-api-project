@@ -23,9 +23,41 @@ const healthLogSeedJSON = {
     "comments": "Tired",
 };
 
-async function newLogHandler(event) {
+const user_id = window.location.toString().split('?')[
+    window.location.toString().split('?').length - 1
+];
+
+async function getUserProfile(event) {
 
     event.preventDefault();
+
+    // TODO: this is hardcoded: replace with dynamic user_id
+    const response = await fetch(`/api/users/${user_id}`, {
+        method: 'GET',
+
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    console.log(response);
+
+    let userLoginResponse = await response.json();
+    // console.log(userLoginResponse);
+
+    let userHeightInInches = (userLoginResponse.height_feet * 12) + userLoginResponse.height_inches;
+    // console.log(userHeightInInches);
+
+    if (response.ok) {
+        newLogHandler(userHeightInInches);
+    } else {
+        alert(response.statusText);
+    }
+
+
+
+};
+
+async function newLogHandler(userHeightInInches) {
 
     const weight = document.querySelector('#inputWeight').value;
     let systolic_blood_pressure = document.querySelector('#inputBPSys').value;
@@ -37,12 +69,10 @@ async function newLogHandler(event) {
     let emoji_feeling = document.querySelector('#inputEmoji').value;
     let comments = document.querySelector('#inputComments').value.trim();
 
-    // const user_height = (user.height_feet * 12) + user.height_inches;
-    const user_height = 74;
-    console.log(user_height);
+    // console.log(userHeightInInches);
 
-    const bmi = (weight/(user_height * user_height)) * 703;
-    console.log(bmi);
+    const bmi = (weight / (userHeightInInches * userHeightInInches)) * 703;
+    // console.log(bmi);
 
     if (!weight) {
         alert("Please make sure to log your weight!");
@@ -74,15 +104,15 @@ async function newLogHandler(event) {
         comments = "";
     };
 
-    console.log(weight, systolic_blood_pressure, diastolic_blood_pressure, heart_rate, exercise_duration, exercise_type, water_consumed, emoji_feeling, comments);
+    // console.log(weight, systolic_blood_pressure, diastolic_blood_pressure, heart_rate, exercise_duration, exercise_type, water_consumed, emoji_feeling, comments);
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
             weight,
+            bmi,
             systolic_blood_pressure,
             diastolic_blood_pressure,
-            bmi,
             heart_rate,
             exercise_duration,
             exercise_type,
@@ -94,6 +124,10 @@ async function newLogHandler(event) {
             'Content-Type': 'application/json'
         }
     });
+    console.log(response);
+
+    let userLoginResponse = await response.json();
+    // console.log(userLoginResponse);
 
     if (response.ok) {
         document.location.replace('/');
@@ -102,4 +136,4 @@ async function newLogHandler(event) {
     }
 }
 
-document.querySelector('.new-log-form').addEventListener('submit', newLogHandler);
+document.querySelector('.new-log-form').addEventListener('submit', getUserProfile);

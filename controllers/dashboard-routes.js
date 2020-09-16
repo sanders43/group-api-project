@@ -7,9 +7,15 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     Post.findAll({
+      order: [['created_at', 'DESC']],
+      where: {
+        // use the ID from the session
+        user_id: req.session.user_id
+    },
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -18,7 +24,8 @@ router.get('/', withAuth, (req, res) => {
         'water_consumed',
         'emoji_feeling',
         'comments',
-        'created_at'
+        'created_at',
+        'user_id'
       ],
       include: [
         {
@@ -31,6 +38,7 @@ router.get('/', withAuth, (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         // pass a single post object into the homepage template
         res.render('dashboard', {
+          user_id: req.session.user_id,
           posts,
           loggedIn: req.session.loggedIn
         });
@@ -51,6 +59,7 @@ router.get('/post/:id', (req, res) => {
       attributes: [
         'id',
         'weight',
+        'bmi',
         'systolic_blood_pressure',
         'diastolic_blood_pressure',
         'heart_rate',
@@ -59,7 +68,8 @@ router.get('/post/:id', (req, res) => {
         'water_consumed',
         'emoji_feeling',
         'comments',
-        'created_at'
+        'created_at',
+        'user_id'
       ],
       include: [
         {
