@@ -30,7 +30,7 @@ router.get('/', withAuth, (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name']
+          attributes: ['first_name', 'last_name', 'admin']
         }
       ]
     })
@@ -40,7 +40,8 @@ router.get('/', withAuth, (req, res) => {
         res.render('dashboard', {
           user_id: req.session.user_id,
           posts,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          admin: req.session.admin
         });
       })
       .catch(err => {
@@ -99,4 +100,5 @@ router.get('/post/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
 module.exports = router;

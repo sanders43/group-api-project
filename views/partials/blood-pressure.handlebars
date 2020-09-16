@@ -1,60 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+{{#if posts}}
+
 <h2>Blood Pressure</h2>
-<canvas id="bpChart" height="100" width="200"></canvas>
+<canvas id="bpChart" height="100" width="100"></canvas>
 
-<script>
-    const bloodPressure = [];
-    let chartBP;
-
-makeChart();
-    
-async function makeChart(){
-    await parseBP()
-    const ctx = document.getElementById('bpChart').getContext('2d');
-  
-   console.log(chartBP);
-
-    const myChart = new Chart(ctx, {
-    type: 'scatter',
-    data:{
-        datasets: [{
-            label: 'Blood Pressure',
-            data: chartBP,
-            backgroundColor: 'rgba(75, 192, 192, 1)'
-        }],
-    },
-    options: {
-        scales: {
-            x: {
-                type: 'linear',
-                position: 'bottom'
-            }
-        }
-    }
-    });
-}
-
-
-async function getBP(){
-        const response = await fetch('/api/posts');
-        const data = await response.json();
-
-    
-        data.forEach(data => {
-            const systolic = data.systolic_blood_pressure;
-            const diastolic = data.diastolic_blood_pressure;
-               bloodPressure.push({diastolic, systolic});
-        })        
-}
-   console.log(bloodPressure);
-
-async function parseBP (){
-    await getBP()
-    chartBP = bloodPressure.map(bp => ({
-        x: bp.diastolic,
-        y: bp.systolic
-    }) )
-}
-</script>
-
-
+<script src="javascript/bloodPressure.js"></script>
+{{/if}}
