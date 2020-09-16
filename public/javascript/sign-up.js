@@ -34,10 +34,10 @@ async function signupFormHandler(event) {
     const height_inches = document.querySelector('#inputHeightInches').value.trim();
     const gender = document.querySelector('#inputGender').value.trim();
     const inputBirthday = document.querySelector('#inputBirthday').value.trim();
-    console.log(inputBirthday);
+    // console.log(inputBirthday);
 
     const birthday = (inputBirthday.split("-"))[1] + "/" + (inputBirthday.split("-"))[2] + "/" + (inputBirthday.split("-"))[0];
-    console.log(birthday);
+    // console.log(birthday);
 
     const privacyPolicy = document.querySelector('#gridCheck');
     // console.log(privacyPolicy.checked);

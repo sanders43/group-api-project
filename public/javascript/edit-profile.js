@@ -2,11 +2,11 @@ async function editFormHandler(event) {
 
     event.preventDefault();
 
-    // TODO: make this work...
-    const id = req.session.user_id;
-    console.log(id);
-
     console.log("button clicked!");
+
+    const id = document.querySelector('#user_id').innerHTML.trim();
+    console.log(id);
+    
 
     const first_name = document.querySelector('#inputFirstName').value.trim();
     const last_name = document.querySelector('#inputLastName').value.trim();
@@ -16,6 +16,10 @@ async function editFormHandler(event) {
     const height_inches = document.querySelector('#inputHeightInches').value.trim();
     const gender = document.querySelector('#inputGender').value.trim();
     const birthday = document.querySelector('#inputBirthday').value.trim();
+    console.log(birthday);
+
+    // const birthday = (inputBirthday.split("-"))[1] + "/" + (inputBirthday.split("-"))[2] + "/" + (inputBirthday.split("-"))[0];
+    // console.log(birthday);
 
     // const privacyPolicy = document.querySelector('#gridCheck');
     // // console.log(privacyPolicy.checked);
@@ -24,6 +28,11 @@ async function editFormHandler(event) {
     //     alert("Please select that you've read and agree to our privacy policy!");
     //     return;
     // };
+
+    if (!password) {
+        alert("Please enter a new password!");
+        return;
+    };
 
     if (password.length < 4) {
         console.log(password.length);
@@ -64,4 +73,4 @@ async function editFormHandler(event) {
     }
 };
 
-document.querySelector('.edit-user-profile').addEventListener('submit', editFormHandler);
+document.querySelector('#submit-edit-profile').addEventListener('click', editFormHandler);

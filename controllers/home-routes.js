@@ -131,13 +131,45 @@ router.get('/edit-profile', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
     return;
-  }
+  };
 
-  res.render('edit-profile', {
-    user_id: req.session.user_id,
-    posts,
-    loggedIn: req.session.loggedIn
-  });
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'first_name',
+      'last_name',
+      'email',
+      'password',
+      'gender',
+      'height_feet',
+      'height_inches',
+      'birthday'
+    ],
+  })
+
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const user = dbUserData.get({ plain: true });
+
+      // pass data to template
+      res.render('edit-profile', {
+        user_id: req.session.user_id,
+        user,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // GET single post
