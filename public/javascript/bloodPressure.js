@@ -20,10 +20,23 @@ async function makeChart(){
     },
     options: {
         scales: {
-            x: {
+            xAxes: [{
                 type: 'linear',
-                position: 'bottom'
-            }
+                position: 'bottom',
+                ticks: {
+                    min: 40,
+                    max: 120,
+                    stepSize: 10
+                }
+            }],
+            yAxes: [{
+                type: 'linear',
+                ticks: {
+                    min: 40,
+                    max: 180,
+                    stepSize: 10
+                }
+            }]
         }
     }
     });
