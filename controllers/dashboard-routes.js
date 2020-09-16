@@ -41,6 +41,7 @@ router.get('/', withAuth, (req, res) => {
           user_id: req.session.user_id,
           posts,
           loggedIn: req.session.loggedIn,
+          admin: req.session.admin
         });
       })
       .catch(err => {
