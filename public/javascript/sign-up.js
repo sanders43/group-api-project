@@ -6,7 +6,7 @@ const signupSeed = {
     gender: "Male",
     height_feet: "5",
     height_inches: "11",
-    birthday: "1990-02-25"
+    birthday: "02/25/1990"
 };
 
 const signupSeedJSON = {
@@ -17,7 +17,7 @@ const signupSeedJSON = {
     "gender": "male",
     "height_feet": "5",
     "height_inches": "11",
-    "birthday": "1990-02-25"
+    "birthday": "02/25/1990"
 };
 
 async function signupFormHandler(event) {
@@ -33,7 +33,11 @@ async function signupFormHandler(event) {
     const height_feet = document.querySelector('#inputHeightFeet').value.trim();
     const height_inches = document.querySelector('#inputHeightInches').value.trim();
     const gender = document.querySelector('#inputGender').value.trim();
-    const birthday = document.querySelector('#inputBirthday').value.trim();
+    const inputBirthday = document.querySelector('#inputBirthday').value.trim();
+    console.log(inputBirthday);
+
+    const birthday = (inputBirthday.split("-"))[1] + "/" + (inputBirthday.split("-"))[2] + "/" + (inputBirthday.split("-"))[0];
+    console.log(birthday);
 
     const privacyPolicy = document.querySelector('#gridCheck');
     // console.log(privacyPolicy.checked);
