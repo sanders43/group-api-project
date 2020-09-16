@@ -33,11 +33,13 @@ router.get('/', withAuth, (req, res) => {
       console.log("@#$!!!!!!!!!!!!!!!!!!")
       console.log(req.session.user_id);
       console.log(req.session.admin);
+      console.log(req.session.loggedIn);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('admin', {
         posts,
         loggedIn: req.session.loggedIn,
+        admin: req.session.admin
       });
     })
     .catch(err => {
