@@ -15,7 +15,7 @@ async function makeChart(){
         datasets: [{
             label: 'Blood Pressure',
             data: chartBP,
-            backgroundColor: 'rgba(75, 192, 192, 1)'
+            backgroundColor: 'rgba(153, 102, 255, 1)'
         }],
     },
     options: {
