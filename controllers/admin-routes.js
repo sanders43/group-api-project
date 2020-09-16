@@ -34,12 +34,7 @@ router.get('/', withAuth, (req, res) => {
       console.log(req.session.user_id);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
-<<<<<<< HEAD:controllers/home-routes.js
-      res.render('homepage', {
-        user_id: req.session.user_id,
-=======
       res.render('admin', {
->>>>>>> feature/admin:controllers/admin-routes.js
         posts,
         loggedIn: req.session.loggedIn
       });
