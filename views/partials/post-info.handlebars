@@ -7,12 +7,12 @@
 
     <div class="row mt-2 mb-1">
         <div class="col-md-12">
-            <p><i class="fas fa-weight"></i> Weight: {{weight}} lbs. |{{#if systolic_blood_pressure}} <i class="fas fa-stethoscope"></i>
+            <p><i class="fas fa-weight"></i> Weight: {{weight}} lbs. {{#if systolic_blood_pressure}} | <i class="fas fa-stethoscope"></i>
                 Blood
-                Pressure: {{systolic_blood_pressure}}/{{diastolic_blood_pressure}} |{{/if}} {{#if heart_rate}}<i class="fas fa-heartbeat"></i>
+                Pressure: {{systolic_blood_pressure}}/{{diastolic_blood_pressure}} {{/if}} {{#if heart_rate}} | <i class="fas fa-heartbeat"></i>
                 Heart
-                Rate: {{heart_rate}} bpm |{{/if}} {{#if exercise_duration}}<i class="fas fa-stopwatch"></i> Exercise Duration:
-                {{exercise_duration}} mins. |{{/if}} {{#if exercise_type}}<i class="fas fa-dumbbell"></i> Exercise Type: {{exercise_type}} |{{/if}} {{#if water_consumed}} <i
+                Rate: {{heart_rate}} bpm {{/if}} {{#if exercise_duration}} | <i class="fas fa-stopwatch"></i> Exercise Duration:
+                {{exercise_duration}} mins. {{/if}} {{#if exercise_type}} | <i class="fas fa-dumbbell"></i> Exercise Type: {{exercise_type}} {{/if}} {{#if water_consumed}} | <i
                     class="fas fa-tint"></i> Water Consumed: {{water_consumed}} oz.{{/if}}</p>
         </div>
     </div>
