@@ -31,7 +31,6 @@ async function getUserProfile(event) {
 
     event.preventDefault();
 
-    // TODO: this is hardcoded: replace with dynamic user_id
     const response = await fetch(`/api/users/${user_id}`, {
         method: 'GET',
 
@@ -126,7 +125,7 @@ async function newLogHandler(userHeightInInches) {
     });
     console.log(response);
 
-    let userLoginResponse = await response.json();
+    // let userLoginResponse = await response.json();
     // console.log(userLoginResponse);
 
     if (response.ok) {

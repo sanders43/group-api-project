@@ -5,7 +5,7 @@ const { Post, User, } = require('../models')
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   Post.findAll({
     order: [['created_at', 'DESC']],
     attributes: [
@@ -20,7 +20,8 @@ router.get('/', withAuth, (req, res) => {
       'water_consumed',
       'emoji_feeling',
       'comments',
-      'created_at'
+      'created_at',
+      'user_id'
     ],
     include: [
       {
@@ -30,8 +31,8 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
-      console.log("@#$!!!!!!!!!!!!!!!!!!")
-      console.log(req.session.user_id);
+      // console.log("@#$!!!!!!!!!!!!!!!!!!")
+      // console.log(req.session.user_id);
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       res.render('homepage', {
@@ -112,8 +113,10 @@ router.get('/post/:id', (req, res) => {
       'exercise_duration',
       'exercise_type',
       'water_consumed',
+      'emoji_feeling',
       'comments',
-      'created_at'
+      'created_at',
+      'user_id'
     ],
     include: [
       {
@@ -133,6 +136,7 @@ router.get('/post/:id', (req, res) => {
 
       // pass data to template
       res.render('single-post', {
+        user_id: req.session.user_id,
         post,
         loggedIn: req.session.loggedIn
       });

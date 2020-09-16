@@ -1,4 +1,4 @@
-<a href="/post/{{id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+<a href="/post/{{id}}:user?{{user_id}}" class="list-group-item list-group-item-action flex-column align-items-start">
 
     <div class="row d-flex w-100 justify-content-between">
         <h5 class="mb-1 font-weight-bold">Body Mass Index: {{bmi}}</h5>
@@ -13,7 +13,8 @@
                 Heart
                 Rate: {{heart_rate}} bpm {{/if}} {{#if exercise_duration}} | <i class="fas fa-stopwatch"></i> Exercise Duration:
                 {{exercise_duration}} mins. {{/if}} {{#if exercise_type}} | <i class="fas fa-dumbbell"></i> Exercise Type: {{exercise_type}} {{/if}} {{#if water_consumed}} | <i
-                    class="fas fa-tint"></i> Water Consumed: {{water_consumed}} oz.{{/if}}</p>
+                    class="fas fa-tint"></i> Water Consumed: {{water_consumed}} oz.{{/if}} {{#if emoji_feeling}} | <i
+                    class="fas fa-tint"></i> Emoji Feeling: {{emoji_feeling}} {{/if}}</p>
         </div>
     </div>
 {{#if comments}}

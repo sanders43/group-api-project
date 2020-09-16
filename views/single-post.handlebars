@@ -2,14 +2,102 @@
 
      {{> post-info post}}
 
-     <div class="mt-3 text-right">
+</div>
+
+
+<form class="container mt-5 new-log-form">
+
+    <div class="form-group row">
+        <label for="inputWeight" class="col-sm-3 col-form-label">Weight <span class="font-italic">(lbs.)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputWeight" placeholder="Weight (required)" value="{{post.weight}}" min="75"
+                max="600">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputBPSys" class="col-sm-3 col-form-label">Blood Pressure <span
+                class="font-italic">(Systolic)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputBPSys" placeholder="Blood Pressure (Systolic)" value="{{post.systolic_blood_pressure}}" min="50"
+                max="250">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputBPDia" class="col-sm-3 col-form-label">Blood Pressure <span
+                class="font-italic">(Diastolic)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputBPDia" placeholder="Blood Pressure (Diastolic)" value="{{post.diastolic_blood_pressure}}" min="25"
+                max="200">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputHR" class="col-sm-3 col-form-label">Resting Heart Rate <span
+                class="font-italic">(bpm)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputHR" placeholder="Heart Rate" value="{{post.heart_rate}}" min="45" max="200">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputExerciseDuration" class="col-sm-3 col-form-label">Exercise Duration <span
+                class="font-italic">(mins)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputExerciseDuration" placeholder="Exercise Duration" value="{{post.exercise_duration}}" min="1"
+                max="360">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputExerciseType" class="col-sm-3 col-form-label">Exercise Type:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputExerciseType" placeholder="Exercise Type" value="{{post.exercise_type}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputWater" class="col-sm-3 col-form-label">Water Consumed <span
+                class="font-italic">(oz.)</span>:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputWater" placeholder="Water Consumed" value="{{post.water_consumed}}" min="0" max="128">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputEmoji" class="col-sm-3 col-form-label">Emoji Feeling:</label>
+        <div class="col-sm-9">
+            <select id="inputEmoji" class="form-control">
+                 <option selected>{{post.emoji_feeling}}</option>
+                <option>😀</option>
+                <option>😅</option>
+                <option>😭</option>
+                <option>🤬</option>
+                <option>🤯</option>
+                <option>😴</option>
+                <option>🤢</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputComments" class="col-sm-3">Comments:</label>
+        <div class="col-sm-9">
+            <textarea class="form-control" id="inputComments" rows="5" placeholder="Tell us how you feel...">{{post.comments}}</textarea>
+        </div>
+    </div>
+
+    <div class="mt-3 text-right">
 
           <button type="button" class="btn btn-primary mr-3" id="edit-log-btn">Edit Log</button>
           <button type="button" class="btn btn-primary" id="delete-log-btn">Delete Log</button>
 
      </div>
 
-</div>
+</form>
+
 
 <script src="/javascript/edit-log.js"></script>
 <script src="/javascript/delete-log.js"></script>

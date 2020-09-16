@@ -89,6 +89,7 @@ router.get('/post/:id', (req, res) => {
   
         // pass data to template
         res.render('single-post', {
+          user_id: req.session.user_id,
           post,
           loggedIn: req.session.loggedIn
         });
@@ -98,5 +99,4 @@ router.get('/post/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
-  module.exports = router;
+module.exports = router;
