@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
-      res.render('homepage', {
+      res.render('admin', {
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -90,7 +90,7 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('single-post', {
+      res.render('single-user', {
         post,
         loggedIn: req.session.loggedIn
       });
