@@ -7,6 +7,11 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     Post.findAll({
+      order: [['created_at', 'DESC']],
+      where: {
+        // use the ID from the session
+        user_id: req.session.user_id
+    },
       attributes: [
         'id',
         'weight',
@@ -19,7 +24,8 @@ router.get('/', withAuth, (req, res) => {
         'water_consumed',
         'emoji_feeling',
         'comments',
-        'created_at'
+        'created_at',
+        'user_id'
       ],
       include: [
         {
@@ -62,7 +68,8 @@ router.get('/post/:id', (req, res) => {
         'water_consumed',
         'emoji_feeling',
         'comments',
-        'created_at'
+        'created_at',
+        'user_id'
       ],
       include: [
         {

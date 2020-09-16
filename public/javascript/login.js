@@ -19,12 +19,12 @@ async function loginFormHandler(event) {
         let userLoginResponse = await response.json();
         console.log(userLoginResponse);
 
-        // if (response.ok) {
-        //     document.location.replace('/');
-        // } else {
-        //     // alert(response.statusText);
-        //     alert("Incorrect email or password.  Please try again.");
-        // }
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            // alert(response.statusText);
+            alert("Incorrect email or password.  Please try again.");
+        }
     }
 }
 
