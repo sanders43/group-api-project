@@ -2,49 +2,55 @@ const xWater = [];
 const yWater = []
 
 makeChart();
-  
-async function makeChart(){
-  await getWater()
-  const ctx = document.getElementById('waterChart').getContext('2d');
+
+async function makeChart() {
+    await getWater()
+    const ctx = document.getElementById('waterChart').getContext('2d');
 
 
-  const myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-      labels: xWater,
-      datasets: [{
-          label: 'Water Consumed',
-          data: yWater,
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-              
-          borderWidth: 1
-           }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      suggestedMin: 10,
-                      suggestedMax: 80
-                  }
-              }]
-          }
-      }
-  });
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xWater,
+            datasets: [{
+                label: 'Water Consumed',
+                data: yWater,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 10,
+                        suggestedMax: 80
+                    }
+                }]
+            }
+        }
+    });
 }
 
-async function getWater(){
-      const response = await fetch('/api/posts');
-      const data = await response.json();
+async function getWater() {
 
-  
-      data.forEach(data => {
-          const water = data.water_consumed;
-          yWater.push(water);
+    const response = await fetch(`/api/posts/user/${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    // console.log(response);
 
-          const date = data.created_at;
-          xWater.push(date);
-      })
-}
+    const data = await response.json();
+    // console.log(data);
 
+
+    data.forEach(data => {
+        const water = data.water_consumed;
+        yWater.push(water);
+
+        const date = data.created_at;
+        xWater.push(date);
+    })
+};

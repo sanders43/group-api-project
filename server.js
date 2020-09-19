@@ -1,5 +1,7 @@
-const path = require('path');
 const express = require('express');
+const favicon = require('serve-favicon');
+const path = require('path');
+
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
@@ -19,6 +21,10 @@ const sess = {
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 
 app.engine('handlebars', hbs.engine);

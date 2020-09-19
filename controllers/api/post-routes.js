@@ -79,6 +79,44 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  router.get('/user/:id', (req, res) => {
+    console.log('======================');
+    Post.findAll({
+       where: {
+            user_id: req.session.user_id
+        },
+      order: [['created_at']],
+      attributes: [
+        'id',
+        'weight',
+        'bmi',
+        'systolic_blood_pressure',
+        'diastolic_blood_pressure',
+        'heart_rate',
+        'exercise_duration',
+        'exercise_type',
+        'water_consumed',
+        'emoji_feeling',
+        'comments',
+        'created_at',
+        'user_id'
+      ],
+      include: [
+        
+        {
+          model: User,
+          attributes: ['id', 'first_name', 'last_name', 'height_feet', 'height_inches']
+        }
+      ]
+     })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  
+  });
   
 
   router.post('/', (req, res) => {

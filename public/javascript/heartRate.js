@@ -2,7 +2,7 @@ const xdate = [];
 const yheartRate = []
 
 const id = document.querySelector('#user_id').innerHTML.trim();
-console.log(id);
+// console.log(id);
 
 makeChart();
 
@@ -40,16 +40,14 @@ async function makeChart() {
 
 async function getHR() {
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/posts/user/${id}`, {
         method: 'GET',
-        where: {
-            user_id: id
-        },
         headers: { 'Content-Type': 'application/json' }
     });
-    console.log(response);
+    // console.log(response);
 
     const data = await response.json();
+    // console.log(data);
 
     data.forEach(data => {
         const heartRate = data.heart_rate;

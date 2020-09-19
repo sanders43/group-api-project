@@ -1,7 +1,7 @@
 function editRedirectHandler(event) {
 
     event.preventDefault();
-    console.log("button clicked!");
+    // console.log("button clicked!");
     document.location.replace('/edit-profile');
 
 };
