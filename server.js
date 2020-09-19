@@ -1,5 +1,5 @@
 const express = require('express');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const path = require('path');
 
 const routes = require('./controllers');
@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3001;
 
 
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 
 app.engine('handlebars', hbs.engine);
