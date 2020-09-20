@@ -38,7 +38,7 @@ async function getUserProfile(event) {
             'Content-Type': 'application/json'
         }
     });
-    console.log(response);
+    // console.log(response);
 
     let userLoginResponse = await response.json();
     // console.log(userLoginResponse);
@@ -123,7 +123,7 @@ async function newLogHandler(userHeightInInches) {
             'Content-Type': 'application/json'
         }
     });
-    console.log(response);
+    // console.log(response);
 
     // let userLoginResponse = await response.json();
     // console.log(userLoginResponse);

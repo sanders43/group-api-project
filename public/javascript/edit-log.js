@@ -1,7 +1,7 @@
 const user_id = window.location.toString().split('?')[
     window.location.toString().split('?').length - 1
 ];
-console.log(user_id);
+// console.log(user_id);
 
 async function getUserProfile(event) {
 
@@ -14,7 +14,7 @@ async function getUserProfile(event) {
             'Content-Type': 'application/json'
         }
     });
-    console.log(response);
+    // console.log(response);
 
     let userLoginResponse = await response.json();
     // console.log(userLoginResponse);
@@ -33,17 +33,17 @@ async function getUserProfile(event) {
 
 async function editFormHandler(userHeightInInches) {
 
-    console.log('button clicked');
+    // console.log('button clicked');
 
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    console.log(post_id);
+    // console.log(post_id);
 
     const post_id_trim = post_id.split(':')[0];
-    console.log(post_id_trim);
+    // console.log(post_id_trim);
 
-    console.log('button clicked');
+    // console.log('button clicked');
     
 
     //TODO: event listener/button click is working... now what to do with the edit...?
@@ -114,7 +114,7 @@ async function editFormHandler(userHeightInInches) {
             'Content-Type': 'application/json'
         }
     });
-    console.log(response);
+    // console.log(response);
 
     // let userLoginResponse = await response.json();
     // console.log(userLoginResponse);

@@ -24,7 +24,7 @@ async function signupFormHandler(event) {
 
     event.preventDefault();
 
-    console.log("button clicked!");
+    // console.log("button clicked!");
 
     const first_name = document.querySelector('#inputFirstName').value.trim();
     const last_name = document.querySelector('#inputLastName').value.trim();
@@ -48,7 +48,7 @@ async function signupFormHandler(event) {
     };
 
     if (password.length < 4) {
-        console.log(password.length);
+        // console.log(password.length);
         alert("Password must be longer than 4 characters.  Please try again.");
         return;
     };
@@ -76,11 +76,11 @@ async function signupFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        console.log(response);
+        // console.log(response);
 
         // check the response status
         if (response.ok) {
-            console.log('success');
+            // console.log('success');
             document.location.replace('/');
         } else {
             alert(response.statusText);

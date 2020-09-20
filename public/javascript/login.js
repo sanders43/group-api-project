@@ -1,7 +1,7 @@
 async function loginFormHandler(event) {
     event.preventDefault();
 
-    console.log("button clicked!");
+    // console.log("button clicked!");
 
     const email = document.querySelector('#inputEmail').value.trim();
     const password = document.querySelector('#inputPassword').value.trim();
@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
         });
 
         let userLoginResponse = await response.json();
-        console.log(userLoginResponse);
+        // console.log(userLoginResponse);
 
         if (response.ok) {
             document.location.replace('/');
