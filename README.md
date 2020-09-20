@@ -31,4 +31,4 @@ https://fathomless-thicket-41464.herokuapp.com/
 
 
 ## Contribution
-Developed by Taylor Nyquist, Mike Portnu, Zac Sanders
+Developed by Taylor Nyquist, Mike Portu, Zac Sanders
