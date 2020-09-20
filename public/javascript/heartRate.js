@@ -34,6 +34,26 @@ async function makeChart(){
   });
 }
 
+const response = await fetch(`/api/posts/${post_id_trim}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+        weight,
+        bmi,
+        systolic_blood_pressure,
+        diastolic_blood_pressure,
+        heart_rate,
+        exercise_duration,
+        exercise_type,
+        water_consumed,
+        emoji_feeling,
+        comments
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+console.log(response);
+
 async function getHR(){
       const response = await fetch('/api/posts');
       const data = await response.json();
